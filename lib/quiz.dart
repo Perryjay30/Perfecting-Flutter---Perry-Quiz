@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:perry_quiz/questions.dart';
+import 'package:perry_quiz/questions_screen.dart';
 
 import 'launch_screen.dart';
 
@@ -32,7 +32,7 @@ class _QuizState extends State<Quiz> {
   Widget build(context) {
     Widget screenWidget = LaunchScreen(switchScreen);
     if(activeScreen == 'questions-screen') {
-      screenWidget = const Questions();
+      screenWidget = const QuestionsScreen();
     }
     return MaterialApp(
       home: Scaffold(
