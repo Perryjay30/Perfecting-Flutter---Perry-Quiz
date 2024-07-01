@@ -22,17 +22,28 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           color: Colors.blueAccent
       ),
       child: Center (
-        child:  Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-             Text(currentQuestion.text, style: const TextStyle(color: Colors.white),
-            ),
-            const SizedBox(height: 30),
-            AnswerButton(currentQuestion.answers[0], () {}),
-            AnswerButton(currentQuestion.answers[1], () {}),
-            AnswerButton(currentQuestion.answers[2], () {}),
-            AnswerButton(currentQuestion.answers[3], () {}),
-          ],
+        child: Container (
+          margin: const EdgeInsets.all(40),
+            child:  Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(currentQuestion.text,
+                  style: const TextStyle(color: Colors.white,
+                    fontSize: 25
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                ...currentQuestion.getShuffledAnswers().map((answer) { //Mapping lists and using the spread operator
+                  return AnswerButton(answer, () {});
+                })
+                // AnswerButton(currentQuestion.answers[0], () {}),
+                // AnswerButton(currentQuestion.answers[1], () {}),
+                // AnswerButton(currentQuestion.answers[2], () {}),
+                // AnswerButton(currentQuestion.answers[3], () {}),
+              ],
+            )
         )
       ),
     );
