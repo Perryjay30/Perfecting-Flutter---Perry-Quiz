@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:perry_quiz/data/quiz_questions.dart';
 import 'package:perry_quiz/questions_screen.dart';
+import 'package:perry_quiz/results_screen.dart';
 
 import 'launch_screen.dart';
 
@@ -15,7 +17,7 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
 
   var activeScreen = 'start-screen';
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
   // Widget? activeScreen;
   // @override
   // void initState() {
@@ -31,6 +33,12 @@ class _QuizState extends State<Quiz> {
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
+    if(selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'results-screen';
+      });
+    }
   }
 
   @override
@@ -39,8 +47,14 @@ class _QuizState extends State<Quiz> {
     if(activeScreen == 'questions-screen') {
       screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer);
     }
+
+    if(activeScreen == 'results-screen') {
+      screenWidget = ResultsScreen(chosenAnswers: selectedAnswers,);
+    }
+
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.blueAccent,
         body: screenWidget,
         // body: activeScreen == 'start-screen'
         //     ? LaunchScreen(switchScreen)
