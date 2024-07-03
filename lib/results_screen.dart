@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:perry_quiz/data/quiz_questions.dart';
+import 'package:perry_quiz/questions_summary.dart';
 
 
 
 class ResultsScreen extends StatelessWidget {
-  ResultsScreen({super.key, required this.chosenAnswers});
+
+  ResultsScreen({super.key, required this.chosenAnswers,
+    required this.onRestart});
 
   List<String> chosenAnswers = [];
 
-  List<Map<String, Object>> getSummaryData() {
+  final void Function() onRestart;
+
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
     for (var i = 0; i < chosenAnswers.length; i++) {
       summary.add(
@@ -24,7 +29,12 @@ class ResultsScreen extends StatelessWidget {
   }
   
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where((data) =>  //arrow function
+      data['user_answer'] == data['correct_answer'],
+    ).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container (
@@ -32,9 +42,9 @@ class ResultsScreen extends StatelessWidget {
         child: Column (
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('You answered X out of Y questions correctly!!'),
+            Text('You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!!'),
             const SizedBox(height: 30,),
-            const Text('List of answers and Questions...'),
+            QuestionsSummary(summaryData),
             const SizedBox(height: 30,),
             TextButton(onPressed: () {}, child: const Text('Restart Quiz!.'),
             )
