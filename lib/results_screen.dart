@@ -28,7 +28,7 @@ class ResultsScreen extends StatelessWidget {
     }
     return summary;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final numTotalQuestions = questions.length;
@@ -52,7 +52,7 @@ class ResultsScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30,),
-            QuestionsSummary(summaryData),
+            QuestionsSummary(summaryData: summaryData),
             const SizedBox(height: 30,),
             TextButton.icon(
               onPressed: onRestart,

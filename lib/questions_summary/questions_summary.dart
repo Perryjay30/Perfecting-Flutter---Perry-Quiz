@@ -3,7 +3,7 @@ import 'package:perry_quiz/questions_summary/summary_item.dart';
 
 class QuestionsSummary extends StatelessWidget {
 
-  const QuestionsSummary(this.summaryData, {super.key});
+  const QuestionsSummary({super.key, required this.summaryData});
 
   final List<Map<String, Object>> summaryData;
 
@@ -14,11 +14,14 @@ class QuestionsSummary extends StatelessWidget {
       child: SingleChildScrollView (
         child: Column(
           children: summaryData.map((data) {
-           return SummaryItem(data);
-        }).toList(),
+            final index = summaryData.indexOf(data);
+            return SummaryItem(
+              data,
+              questionIndex: index, // Pass the current index
+            );
+          }).toList(),
         ),
       ),
     );
   }
-
 }
