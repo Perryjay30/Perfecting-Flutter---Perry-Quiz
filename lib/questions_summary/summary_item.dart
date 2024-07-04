@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perry_quiz/questions_summary/questions_identifier.dart';
 
 
 class SummaryItem extends StatelessWidget {
@@ -11,14 +12,27 @@ class SummaryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isCorrectAnswer = itemData['user_answer'] == itemData['correct_answer'];
+
+    int theQuestionIndex;
+    try {
+      theQuestionIndex = itemData['question'] as int;
+      print('Questions Increment');
+    } catch (e) {
+      theQuestionIndex = 1;
+      print('Questions Decrement');// or handle it in some other appropriate way
+    }
     return Padding(
-      padding: const EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric (
         vertical: 8,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        Text(((data['question_index'] as int) + 1).toString()),
+          if (theQuestionIndex != -1)  // Only show if questionIndex is valid
+            QuestionIdentifier(
+              isCorrectAnswer: isCorrectAnswer,
+              questionIndex: theQuestionIndex,
+            ),
         const SizedBox(width: 20,),
         Expanded(
             child: Column(

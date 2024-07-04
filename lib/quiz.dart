@@ -42,7 +42,7 @@ class _QuizState extends State<Quiz> {
 
   void restartQuiz() {
     setState(() {
-      // selectedAnswers = [];
+      selectedAnswers = [];
       activeScreen = 'questions-screen';
     });
   }
@@ -63,11 +63,15 @@ class _QuizState extends State<Quiz> {
 
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueAccent,
-        body: screenWidget,
+        body: Container(
+          decoration: const BoxDecoration(
+            color: Colors.blueAccent
+          ),
         // body: activeScreen == 'start-screen'
         //     ? LaunchScreen(switchScreen)
         //     : const Questions(),
+          child: screenWidget,
+        ),
       ),
     );
   }
