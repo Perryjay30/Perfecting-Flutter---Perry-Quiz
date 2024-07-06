@@ -65,7 +65,9 @@ class _QuizState extends State<Quiz> {
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-            color: Colors.blueAccent
+            image: DecorationImage(image: AssetImage('assets/images/quiz_game.png'),
+              fit: BoxFit.cover
+            )
           ),
         // body: activeScreen == 'start-screen'
         //     ? LaunchScreen(switchScreen)

@@ -5,10 +5,10 @@ import 'package:perry_quiz/questions_summary/questions_identifier.dart';
 
 
 class SummaryItem extends StatelessWidget {
-  const SummaryItem(this.itemData, {super.key, required this.questionIndex});
+  const SummaryItem(this.itemData, {super.key});
 
   final Map<String, Object> itemData;
-  final int questionIndex;
+  // final int questionIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SummaryItem extends StatelessWidget {
         children: [
           QuestionIdentifier(
             isCorrectAnswer: isCorrectAnswer,
-            questionIndex: questionIndex, // Pass the incremented index directly
+            questionIndex: itemData['questions_index'] as int, // Pass the incremented index directly
           ),
           const SizedBox(width: 20,),
           Expanded(

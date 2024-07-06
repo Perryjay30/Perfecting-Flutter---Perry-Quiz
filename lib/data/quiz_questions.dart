@@ -2,55 +2,91 @@ import 'package:perry_quiz/models/questions_and_answers.dart';
 
 const questions = [
   QuestionsAndAnswers (
-    'What are the main building blocks of Flutter UIs?',
+    'What is Perry\'s favorite food?',
     [
-      'Widgets',
-      'Components',
-      'Blocks',
-      'Functions',
+      'Fried Rice and Jollof Rice with Chicken',
+      'Semovita and Egusi',
+      'Yam and Eggs',
+      'Beans and Plantain',
     ],
   ),
-  QuestionsAndAnswers ('How are Flutter UIs built?', [
-    'By combining widgets in code',
-    'By combining widgets in a visual editor',
-    'By defining widgets in config files',
-    'By using XCode for iOS and Android Studio for Android',
-    ],
-  ),
-  QuestionsAndAnswers (
-    'What\'s the purpose of a StatefulWidget?',
-    [
-      'Update UI as data changes',
-      'Update data as UI changes',
-      'Ignore data changes',
-      'Render UI that does not depend on data',
+  QuestionsAndAnswers ('What do you think is Perry\'s age range?', [
+    '25-28',
+    '29-32',
+    '23-25',
+    '33-36',
     ],
   ),
   QuestionsAndAnswers (
-    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+    'What\'s Perry profession?',
     [
-      'StatelessWidget',
-      'StatefulWidget',
-      'Both are equally good',
-      'None of the above',
+      'Software Engineer',
+      'Medical Doctor',
+      'Lawyer',
+      'Footballer',
     ],
   ),
   QuestionsAndAnswers (
-    'What happens if you change data in a StatelessWidget?',
+    'What does Perry likes to do during his leisure time?',
     [
-      'The UI is not updated',
-      'The UI is updated',
-      'The closest StatefulWidget is updated',
-      'Any nested StatefulWidgets are updated',
+      'See Action Movies',
+      'Read Novels',
+      'Make Research',
+      'Dance',
     ],
   ),
   QuestionsAndAnswers (
-    'How should you update data inside of StatefulWidgets?',
+    'Do you think Perry\'s profession has made him an introvert?',
     [
-      'By calling setState()',
-      'By calling updateData()',
-      'By calling updateUI()',
-      'By calling updateState()',
+      'Yes, it has',
+      'No, it hasn\'t',
+      'I guess so',
+      'I strongly disagree',
+    ],
+  ),
+  QuestionsAndAnswers (
+    'What is Perry\'s love language?',
+    [
+      'Quality time',
+      'Words of affirmation',
+      'Gifts',
+      'Physical touch',
+    ],
+  ),
+  QuestionsAndAnswers (
+    'How can you rate he\'s spiritual life?',
+    [
+      '80%',
+      '100%',
+      '50%',
+      'He\'s not really a lover of God',
+    ],
+  ),
+  QuestionsAndAnswers (
+    'What\'s his biggest dream?',
+    [
+      'To afford all his heart desires',
+      'To bag several educational degrees',
+      'To acquire luxury properties',
+      'To be a father',
+    ],
+  ),
+  QuestionsAndAnswers (
+    'How best can you describe him in two words?',
+    [
+      'Hard-working and Kind hearted',
+      'Playful and calm',
+      'Passionate and prayerful',
+      'Insightful and optimistic',
+    ],
+  ),
+  QuestionsAndAnswers (
+    'Which of the following is not part of his hobbies?',
+    [
+      'Swimming',
+      'Writing codes',
+      'Traveling',
+      'Learning new things',
     ],
   ),
 ];

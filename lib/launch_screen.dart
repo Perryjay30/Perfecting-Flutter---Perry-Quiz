@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
@@ -11,38 +12,32 @@ class LaunchScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.blueAccent
-      ),
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset('assets/images/quiz-logo.png',
-              width: 200,
-              color: const Color.fromARGB(150, 255, 255, 255),
-            ),
-            const SizedBox(height: 50,),
-            const Text(style: TextStyle(
-                color: Colors.white,
-                fontSize: 28,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.bold
-            ),
-              'Welcome to Perry Quiz!!',),
-            const SizedBox(height: 30,),
-            OutlinedButton.icon(onPressed: startQuiz,
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  textStyle: const TextStyle(
-                    fontSize: 20,
-                  ),
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset('assets/images/quiz-logo.png',
+            width: 200,
+            // color: const Color.fromARGB(150, 255, 255, 255),
+          ),
+          const SizedBox(height: 50,),
+           Text(style: GoogleFonts.roboto(
+              color: Colors.white,
+              fontSize: 28,
+              fontWeight: FontWeight.bold
+          ),
+            'Welcome to Perry Quiz!!',),
+          const SizedBox(height: 30,),
+          OutlinedButton.icon(onPressed: startQuiz,
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+                textStyle: const TextStyle(
+                  fontSize: 20,
                 ),
-                icon: const Icon(Icons.arrow_right_alt),
-                label: const Text('Begin'))
-          ],
-        ),
+              ),
+              icon: const Icon(Icons.arrow_right_alt),
+              label: const Text('Begin'))
+        ],
       ),
     );
   }

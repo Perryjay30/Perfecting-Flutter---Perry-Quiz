@@ -14,10 +14,10 @@ class QuestionsSummary extends StatelessWidget {
       child: SingleChildScrollView (
         child: Column(
           children: summaryData.map((data) {
-            final index = summaryData.indexOf(data);
+            // final index = summaryData.indexOf(data);
             return SummaryItem(
               data,
-              questionIndex: index, // Pass the current index
+              // questionIndex: index, // Pass the current index
             );
           }).toList(),
         ),
